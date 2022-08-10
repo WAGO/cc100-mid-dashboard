@@ -1,0 +1,1702 @@
+[
+    {
+        "id": "cb106a8abee15a86",
+        "type": "tab",
+        "label": "MID Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "05fa2bf986e01686",
+        "type": "modbus-flex-sequencer",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "sequences": [
+            {
+                "name": "voltage",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20480",
+                "quantity": "8"
+            },
+            {
+                "name": "frequency",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20488",
+                "quantity": "2"
+            },
+            {
+                "name": "current",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20490",
+                "quantity": "8"
+            },
+            {
+                "name": "eff_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20498",
+                "quantity": "8"
+            },
+            {
+                "name": "reac_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20506",
+                "quantity": "8"
+            },
+            {
+                "name": "app_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20514",
+                "quantity": "8"
+            },
+            {
+                "name": "power_factor",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20522",
+                "quantity": "8"
+            },
+            {
+                "name": "eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24576",
+                "quantity": "12"
+            },
+            {
+                "name": "forw_eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24588",
+                "quantity": "12"
+            },
+            {
+                "name": "rev_eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24600",
+                "quantity": "12"
+            },
+            {
+                "name": "reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24612",
+                "quantity": "12"
+            },
+            {
+                "name": "forw_reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24624",
+                "quantity": "12"
+            },
+            {
+                "name": "rev_reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24636",
+                "quantity": "12"
+            }
+        ],
+        "server": "f916ff91cd483ac8",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 360,
+        "y": 980,
+        "wires": [
+            [
+                "3a3e03d12ec90d99",
+                "3cbeee7424d97264"
+            ],
+            []
+        ],
+        "info": "if (name === \"voltage_L1\"){\r\n    msg.topic = \"voltage_L1\";\r\n} else {\r\n    msg.topic = \"default\";\r\n}\r\n\r\n"
+    },
+    {
+        "id": "bcbe50104de6506b",
+        "type": "inject",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 980,
+        "wires": [
+            [
+                "05fa2bf986e01686",
+                "1b0b639578d16ae7"
+            ]
+        ]
+    },
+    {
+        "id": "3a3e03d12ec90d99",
+        "type": "debug",
+        "z": "cb106a8abee15a86",
+        "name": "raw data",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "04c84e4a6b0a921e",
+        "type": "switch",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "voltage_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "current_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_power_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_power_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "app_power_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "power_factor_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_energy_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_eff_energy_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_eff_energy_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_energy_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_reac_energy_L1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_reac_energy_L1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 12,
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "c6cef739e1ea53f7"
+            ],
+            [
+                "d178efbdae137a6f"
+            ],
+            [
+                "6f93fa07412ad5e2",
+                "6189821eda693410"
+            ],
+            [
+                "c7da4cc3dc52df37",
+                "6189821eda693410"
+            ],
+            [
+                "2236adc683418528"
+            ],
+            [
+                "3584a06057522218"
+            ],
+            [
+                "7e71e4d5ba6c97e3"
+            ],
+            [
+                "feff848f71e98c25"
+            ],
+            [
+                "39bddfc8b0d01b41"
+            ],
+            [
+                "506202ede32c1b1c"
+            ],
+            [
+                "d55b3cd1946bac8b"
+            ],
+            [
+                "194d31c755482892"
+            ]
+        ]
+    },
+    {
+        "id": "3cbeee7424d97264",
+        "type": "function",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "func": "function hexStringToFloat(hexString) {\n    const hex = parseInt(hexString, 16);\n    const sign = hex >> 31 ? -1 : 1;\n    const exponent = (hex >> 23) & 0xFF;\n    return sign * (hex & 0x7fffff | 0x800000) * 1.0 / Math.pow(2, 23) * Math.pow(2, (exponent - 127));\n}\n\nfunction round(num) {\n    var m = Number((Math.abs(num) * 100).toPrecision(15));\n    return Math.round(m) / 100 * Math.sign(num);\n}\n\n\nvar arr_val = [];\n\nfor (let i = 0; i < (msg.payload.length / 2); i++) {\n    var msb = msg.payload[(2 * i)];\n\n    var lsb = msg.payload[(2 * i) + 1];\n    var val;\n    var category;\n\n    if (msg.payload.length <= 8){\n        switch (i) {\n        case 0:\n            category = \"total\";\n            break;\n        case 1:\n            category = \"L1\";\n            break;\n        case 2:\n            category = \"L2\";\n            break;\n        case 3:\n            category = \"L3\";\n            break;\n        default:\n            break;\n        }\n    } else {\n        switch (i) {\n        case 0:\n            category = \"total\";\n            break;\n        case 1:\n            category = \"T1\";\n            break;\n        case 2:\n            category = \"T2\";\n            break;\n        case 3:\n            category = \"L1\";\n            break;\n        case 4:\n            category = \"L2\";\n            break;\n        case 5:\n            category = \"L3\";\n            break;\n        default:\n            break;\n        }\n    }\n    \n    console.log(msg.name);\n    console.log(category);\n\n    if ((msb != null) && (lsb != null)){\n        val = round(hexStringToFloat(msb.toString(16) + lsb.toString(16)));  \n        console.log(\"val: \");\n        console.log(val);\n    } else {\n        val = -1;\n        console.error(\"ERROR\");\n    }\n    \n    arr_val.push({payload: val, topic: (msg.name + \"_\" + category)});\n}\n\nreturn [arr_val];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 980,
+        "wires": [
+            [
+                "04c84e4a6b0a921e",
+                "576dc7468295e8b5",
+                "0cbb11e2763c2f65",
+                "c07af5d6cc475632"
+            ]
+        ]
+    },
+    {
+        "id": "576dc7468295e8b5",
+        "type": "switch",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "eff_power_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_power_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "app_power_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "power_factor_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_energy_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_energy_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "voltage_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "current_total",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "frequency_total",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 9,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "d4e12092ae7880d7"
+            ],
+            [
+                "4dd9f34ae8bc7b25"
+            ],
+            [
+                "1eea9e1ce55396a1"
+            ],
+            [
+                "8eed1c3a85dfb954"
+            ],
+            [
+                "6802657c3751dc5f"
+            ],
+            [
+                "f796edf1be261dd6"
+            ],
+            [
+                "670627b7632903a4"
+            ],
+            [
+                "6c19d0a705777882"
+            ],
+            [
+                "84766c76bae43d11"
+            ]
+        ]
+    },
+    {
+        "id": "ccf73c106f63a845",
+        "type": "comment",
+        "z": "cb106a8abee15a86",
+        "name": "total",
+        "info": "",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4b6b8db982268127",
+        "type": "comment",
+        "z": "cb106a8abee15a86",
+        "name": "L1",
+        "info": "",
+        "x": 790,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "0cbb11e2763c2f65",
+        "type": "switch",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "voltage_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "current_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_power_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_power_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "app_power_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "power_factor_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_energy_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_eff_energy_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_eff_energy_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_energy_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_reac_energy_L2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_reac_energy_L2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 12,
+        "x": 790,
+        "y": 1240,
+        "wires": [
+            [
+                "dac8578abd5c1a5c"
+            ],
+            [
+                "a5bd44cebeb641cf"
+            ],
+            [
+                "ad2c88f16f5dd48a",
+                "eab5cb168c090ab7"
+            ],
+            [
+                "7ff48688bc0095a5",
+                "eab5cb168c090ab7"
+            ],
+            [
+                "4d926ef1202d74be"
+            ],
+            [
+                "42d75413fa757683"
+            ],
+            [
+                "9c86795b1a1e15d9"
+            ],
+            [
+                "51cb345aa1fb0870"
+            ],
+            [
+                "fd077c32501804da"
+            ],
+            [
+                "85963451f5f8b79e"
+            ],
+            [
+                "b8b9f1253c309082"
+            ],
+            [
+                "9d4c99a0a0cb120b"
+            ]
+        ]
+    },
+    {
+        "id": "983f68455d4247ab",
+        "type": "comment",
+        "z": "cb106a8abee15a86",
+        "name": "L2",
+        "info": "",
+        "x": 790,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "c07af5d6cc475632",
+        "type": "switch",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "voltage_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "current_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_power_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_power_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "app_power_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "power_factor_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_energy_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_eff_energy_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_eff_energy_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_energy_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_reac_energy_L3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_reac_energy_L3",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 12,
+        "x": 790,
+        "y": 1780,
+        "wires": [
+            [
+                "bab57ccf6b0b8497"
+            ],
+            [
+                "f4c6809fcc987cdd"
+            ],
+            [
+                "1da6f3ba0120025a",
+                "b984985b13adb229"
+            ],
+            [
+                "db68696334f55a4a",
+                "b984985b13adb229"
+            ],
+            [
+                "2e3bbf67486858eb"
+            ],
+            [
+                "7987d358cba4e778"
+            ],
+            [
+                "10333298ad12b7e3"
+            ],
+            [
+                "ae2bdf3d57d81508"
+            ],
+            [
+                "4e104cf97dd650ac"
+            ],
+            [
+                "d19fdd3e7df641fd"
+            ],
+            [
+                "bf88747dd10707f6"
+            ],
+            [
+                "019eea28fa83b5f2"
+            ]
+        ]
+    },
+    {
+        "id": "40bd2d5d80ea25fa",
+        "type": "comment",
+        "z": "cb106a8abee15a86",
+        "name": "L3",
+        "info": "",
+        "x": 790,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "6189821eda693410",
+        "type": "function",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "func": "if(msg.topic == 'eff_power_L1'){\n    global.set(\"eff_pow_L1\",  msg.payload);\n}\nif(msg.topic == 'reac_power_L1'){\n    global.set(\"reac_pow_L1\", msg.payload);\n}\n\nif (global.get(\"eff_pow_L1\") >= 0 && global.get(\"reac_pow_L1\") >= 0){\n    global.set(\"quad_L1\", 1);\n} else if (global.get(\"eff_pow_L1\") < 0 && global.get(\"reac_pow_L1\") >= 0) {\n    global.set(\"quad_L1\", 2);\n} else if (global.get(\"eff_pow_L1\") < 0 && global.get(\"reac_pow_L1\") < 0) {\n    global.set(\"quad_L1\", 3);\n} else if (global.get(\"eff_pow_L1\") >= 0 && global.get(\"reac_pow_L1\") < 0) {\n    global.set(\"quad_L1\", 4);\n} else {\n    global.set(\"quad_L1\", 0);\n}\n\nmsg.payload = global.get(\"quad_L1\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 440,
+        "wires": [
+            [
+                "57f69b737846b64c"
+            ]
+        ]
+    },
+    {
+        "id": "3960a9dcb7e5b223",
+        "type": "inject",
+        "z": "cb106a8abee15a86",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "58e91a35b6d366b2"
+            ]
+        ]
+    },
+    {
+        "id": "58e91a35b6d366b2",
+        "type": "function",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "func": "global.set(\"eff_pow_L1\", 0);\nglobal.set(\"reac_pow_L1\", 0);\nglobal.set(\"quad_L1\", 0);\nglobal.set(\"eff_pow_L2\", 0);\nglobal.set(\"reac_pow_L2\", 0);\nglobal.set(\"quad_L2\", 0);\nglobal.set(\"eff_pow_L3\", 0);\nglobal.set(\"reac_pow_L3\", 0);\nglobal.set(\"quad_L3\", 0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eab5cb168c090ab7",
+        "type": "function",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "func": "if(msg.topic == 'eff_power_L2'){\n    global.set(\"eff_pow_L2\",  msg.payload);\n}\nif(msg.topic == 'reac_power_L2'){\n    global.set(\"reac_pow_L2\", msg.payload);\n}\n\nif (global.get(\"eff_pow_L2\") >= 0 && global.get(\"reac_pow_L2\") >= 0){\n    global.set(\"quad_L2\", 1);\n} else if (global.get(\"eff_pow_L2\") < 0 && global.get(\"reac_pow_L2\") >= 0) {\n    global.set(\"quad_L2\", 2);\n} else if (global.get(\"eff_pow_L2\") < 0 && global.get(\"reac_pow_L2\") < 0) {\n    global.set(\"quad_L2\", 3);\n} else if (global.get(\"eff_pow_L2\") >= 0 && global.get(\"reac_pow_L2\") < 0) {\n    global.set(\"quad_L2\", 4);\n} else {\n    global.set(\"quad_L2\", 0);\n}\n\nmsg.payload = global.get(\"quad_L2\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 980,
+        "wires": [
+            [
+                "715ba470b6de41cd"
+            ]
+        ]
+    },
+    {
+        "id": "b984985b13adb229",
+        "type": "function",
+        "z": "cb106a8abee15a86",
+        "name": "",
+        "func": "if(msg.topic == 'eff_power_L3'){\n    global.set(\"eff_pow_L3\",  msg.payload);\n}\nif(msg.topic == 'reac_power_L3'){\n    global.set(\"reac_pow_L3\", msg.payload);\n}\n\nif (global.get(\"eff_pow_L3\") >= 0 && global.get(\"reac_pow_L3\") >= 0){\n    global.set(\"quad_L3\", 1);\n} else if (global.get(\"eff_pow_L3\") < 0 && global.get(\"reac_pow_L3\") >= 0) {\n    global.set(\"quad_L3\", 2);\n} else if (global.get(\"eff_pow_L3\") < 0 && global.get(\"reac_pow_L3\") < 0) {\n    global.set(\"quad_L3\", 3);\n} else if (global.get(\"eff_pow_L3\") >= 0 && global.get(\"reac_pow_L3\") < 0) {\n    global.set(\"quad_L3\", 4);\n} else {\n    global.set(\"quad_L3\", 0);\n}\n\nmsg.payload = global.get(\"quad_L3\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1520,
+        "wires": [
+            [
+                "4a060130f170f7ad"
+            ]
+        ]
+    },
+    {
+        "id": "c6cef739e1ea53f7",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Voltage",
+        "format": "<font color={{msg.color}} >{{msg.payload}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d178efbdae137a6f",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{msg.payload}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6f93fa07412ad5e2",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "670627b7632903a4",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Voltage",
+        "format": "<font color={{msg.color}} >{{msg.payload}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6c19d0a705777882",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{msg.payload}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "84766c76bae43d11",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Grid Frequency",
+        "format": "<font color={{msg.color}} >{{msg.payload}} Hz",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d4e12092ae7880d7",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c7da4cc3dc52df37",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "2236adc683418528",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "3584a06057522218",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Efficiency Factor PF",
+        "format": "<font color={{msg.color}} >{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "7e71e4d5ba6c97e3",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "feff848f71e98c25",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "39bddfc8b0d01b41",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "506202ede32c1b1c",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "d55b3cd1946bac8b",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "194d31c755482892",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "4dd9f34ae8bc7b25",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1eea9e1ce55396a1",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8eed1c3a85dfb954",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Efficiency Factor PF",
+        "format": "<font color={{msg.color}} >{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6802657c3751dc5f",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f796edf1be261dd6",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "dac8578abd5c1a5c",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Voltage",
+        "format": "<font color={{msg.color}} >{{msg.payload}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "a5bd44cebeb641cf",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{msg.payload}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "ad2c88f16f5dd48a",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "7ff48688bc0095a5",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "4d926ef1202d74be",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "42d75413fa757683",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Efficiency Factor PF",
+        "format": "<font color={{msg.color}} >{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "9c86795b1a1e15d9",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "51cb345aa1fb0870",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "fd077c32501804da",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "85963451f5f8b79e",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "b8b9f1253c309082",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "9d4c99a0a0cb120b",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "bab57ccf6b0b8497",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Voltage",
+        "format": "<font color={{msg.color}} >{{msg.payload}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "f4c6809fcc987cdd",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{msg.payload}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "1da6f3ba0120025a",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "db68696334f55a4a",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "2e3bbf67486858eb",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "7987d358cba4e778",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Efficiency Factor PF",
+        "format": "<font color={{msg.color}} >{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "10333298ad12b7e3",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "ae2bdf3d57d81508",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "4e104cf97dd650ac",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "d19fdd3e7df641fd",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1160,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "bf88747dd10707f6",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "019eea28fa83b5f2",
+        "type": "ui_text",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{msg.payload}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1170,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "57f69b737846b64c",
+        "type": "ui_template",
+        "z": "cb106a8abee15a86",
+        "group": "a25f9cb1ea590f9f",
+        "name": "Power Display",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "format": "<div class=\"quad_L1\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"rgb(239, 240, 241)\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>\n\n\n\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "715ba470b6de41cd",
+        "type": "ui_template",
+        "z": "cb106a8abee15a86",
+        "group": "1dd651216fcc6910",
+        "name": "Power Display",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "format": "<div class=\"quad_L2\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"rgb(239, 240, 241)\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>\n\n\n\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4a060130f170f7ad",
+        "type": "ui_template",
+        "z": "cb106a8abee15a86",
+        "group": "49374d1dfda2972d",
+        "name": "Power Display",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "format": "<div class=\"quad_L3\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"rgb(239, 240, 241)\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'rgb(110, 200, 0)':'rgb(30, 40, 55)' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>\n\n\n\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b0b639578d16ae7",
+        "type": "ui_template",
+        "z": "cb106a8abee15a86",
+        "group": "a94a8b6a83cfed0b",
+        "name": "WAGO",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    body {\n        background-image: url(\"https://raw.githubusercontent.com/WAGO/docker-documentation/master/images/pfcs.png\");\n        background-repeat: no-repeat;\n        background-position: left top;\n        background-size: 100%;\n        background-attachment: fixed;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 300,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f916ff91cd483ac8",
+        "type": "modbus-client",
+        "name": "MID",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.178.68",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/serial",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "even",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true
+    },
+    {
+        "id": "a25f9cb1ea590f9f",
+        "type": "ui_group",
+        "name": "Phase L1",
+        "tab": "fb0595d9e9059f9e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a94a8b6a83cfed0b",
+        "type": "ui_group",
+        "name": "Total",
+        "tab": "fb0595d9e9059f9e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1dd651216fcc6910",
+        "type": "ui_group",
+        "name": "Phase L2",
+        "tab": "fb0595d9e9059f9e",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49374d1dfda2972d",
+        "type": "ui_group",
+        "name": "Phase L3",
+        "tab": "fb0595d9e9059f9e",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fb0595d9e9059f9e",
+        "type": "ui_tab",
+        "name": "MID",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

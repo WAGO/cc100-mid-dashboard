@@ -19,11 +19,13 @@ This repo describes how to set up a sample dashboard for the MID from WAGO in No
 
 <p align="center">
 <img src="images/cc100.png"
+     width="600"
      alt="Connections of the CC100"
      title="Connections of the CC100"/>
 </p>
 <p align="center">
 <img src="images/mid.png"
+     width="400"
      alt="Connections of the MID (879-3000)"
      title="Connections of the MID (879-3000)"/>
 </p>
@@ -77,6 +79,7 @@ nodered/node-red
 
 <p align="center">
 <img src="images/changeDashboardTheme.png"
+     width="500"
      alt="Change the color theme of the dashboard"
      title="Change the color theme of the dashboard"/>
 </p>

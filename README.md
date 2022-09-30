@@ -85,7 +85,9 @@ nodered/node-red
 > You can adapt the flow to your needs by reading other registers as well. The addresses of all registers that can be read can be found in the data sheet of the MID. Please note that the addresses for the Modbus read nodes must be specified as decimal values.
 
 ## Further CC100 Projects
-See [CC100 video tutorials](https://www.youtube.com/channel/UCV2GhmZPWc5JU73ktI1St4Q/videos) to learn about the cc100 lib in Node-RED
+* [CC100 video tutorials](https://www.youtube.com/channel/UCV2GhmZPWc5JU73ktI1St4Q/videos)
+* [cc100-serial-communication](https://github.com/WAGO/cc100-serial-communication)
+* [cc100-energy-dashboard](https://github.com/WAGO/cc100-energy-dashboard)
 
 ## Sources
 * [WAGO CC100 data sheet](https://www.wago.com/global/plcs-%E2%80%93-controllers/compact-controller-100/p/751-9301)

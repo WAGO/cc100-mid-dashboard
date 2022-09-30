@@ -67,7 +67,6 @@ nodered/node-red
 
 <p align="center">
 <img src="images/flow_mid_dashboard.png"
-     width="600"
      alt="Node-RED Flow MID Dashboard"
      title="Node-RED Flow MID Dashboard"/>
 </p>

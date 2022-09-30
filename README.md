@@ -1,7 +1,11 @@
 # cc100-mid-dashboard
-This repo describes how to set up a sample dashboard for the MID from WAGO in Node-RED. For this, the MID must to be connected to a CC100.
+This repository shows the implementation of an energy dashboard on the WAGO CC100 using Node-RED. The WAGO energy meter (MID) is used as source for the energy data.
 
-# How to import the MID Dashboard in Node-RED
+<p align="center">
+<img src="images/dashboard.png"
+     alt="Node-RED Energy Dashboard"
+     title="Node-RED Energy Dashboard"/>
+</p>
 
 ## Prerequisites for tutorial
 * WAGO CC100 (751-9301) 
@@ -13,21 +17,23 @@ This repo describes how to set up a sample dashboard for the MID from WAGO in No
 * PC with preinstalled SSH Client (e.g. [PuTTY](https://www.putty.org/))
 * Web browser of your choice. (e.g. chrome)
 
+> Follow the [cc100-serial-communication repository](https://github.com/WAGO/cc100-serial-communication) for better understanding
+
 ## Setup
-1. Connect the MID to your CC100 via Modbus. The order is irrelevant.
-2. In case of MID 879-3000 connect **A (7)** with **D+ (X11.1)** of the CC100 and **B (8)** with **D- (X11.2)** of the CC100
+The idea is to use the CC100 to read energy data from the MID via Modbus RTU and display it on a Node-RED dashboard.
 
 <p align="center">
-<img src="images/cc100.png"
-     width="600"
-     alt="Connections of the CC100"
-     title="Connections of the CC100"/>
+<img src="images/concept.png"
+     alt="Concept"
+     title="Concept"/>
 </p>
+
+Connect the terminals X11.1 and X11.2 of the CC100 with the terminals 7 and 8 of the MID
+
 <p align="center">
-<img src="images/mid.png"
-     width="400"
-     alt="Connections of the MID (879-3000)"
-     title="Connections of the MID (879-3000)"/>
+<img src="images/setup.png"
+     alt="Connection of the CC100 with the MID"
+     title="Connection of the CC100 with the MID"/>
 </p>
 
 ## CC100 Login
@@ -38,15 +44,11 @@ password 'wago'
 
 ## Check docker installation
 <pre><code>docker info
-docker ps           # to see all running containers (no container should run)
-docker images       # to see all preinstalled images
+docker ps           # lists all running containers (no container should run)
+docker images       # lists all preinstalled images
 </code></pre>
 
-Enjoy the power of the whale!
-
-## Import Dashboard in Node-RED
-1. Use the following command to start a Node-RED container
-
+## Start Node-RED container
 <pre><code>docker run -d \
 --name node-red \
 --restart always \
@@ -58,45 +60,34 @@ Enjoy the power of the whale!
 nodered/node-red
 </code></pre>
 
-2. Enter **\<ip of your PFC>\:1880** in your web browser to open Node-RED
-3. Open to the **burger-menu** and navigate to **Manage palette** - **Install**
-4. Install the **node-red-contrib-modbus** lib and the **node-red-dashboard** lib
-5. Open the **burger-menu** again and click **Import**
-6. Select the file [midDashboard.json](midDashboard.json) (download first)
+## Import Node-RED dashboard
+1. Open Node-RED by typing **\<ip of your PFC>\:1880** into your browser
+2. Install the **node-red-contrib-modbus** lib and the **node-red-dashboard** lib (burger menu - Manage palette - Install)
+3. Import the flow [MID Dashboard](flow_mid_dashboard.json)
 
 <p align="center">
-<img src="images/flowPartOne.PNG"
-     alt="Dashboard flow part one"
-     title="Dashboard flow part one"/>
+<img src="images/flow_mid_dashboard.png"
+     width="600"
+     alt="Node-RED Flow MID Dashboard"
+     title="Node-RED Flow MID Dashboard"/>
 </p>
-<p align="center">
-<img src="images/flowPartTwo.PNG"
-     alt="Dashboard flow part two"
-     title="Dashboard flow part two"/>
-</p>
-
-7. Navigate to **dashboard** - **Theme** and change the color theme
 
 <p align="center">
-<img src="images/changeDashboardTheme.png"
-     width="500"
-     alt="Change the color theme of the dashboard"
-     title="Change the color theme of the dashboard"/>
+<img src="images/subflow_read_mid_data.png"
+     alt="Node-RED Subflow Read MID Data"
+     title="Node-RED Subflow Read MID Data"/>
 </p>
 
-8. Deploy
-9. Click the **init**-Node
-10. Enter **\<ip of your PFC>\:1880/ui** in your web browser to open the MID dashboard
+4. Deploy the flow
+5. Click on the injection node to read the MID data
+6. Open the dashboard by typing **\<ip of your PFC>\:1880/ui** into your browser
 
-<p align="center">
-<img src="images/dashboard.png"
-     alt="MID dashboard"
-     title="MID dashboard"/>
-</p>
+> You can adapt the flow to your needs by reading other registers as well. The addresses of all registers that can be read can be found in the data sheet of the MID. Please note that the addresses for the Modbus read nodes must be specified as decimal values.
 
 ## Further CC100 Projects
 See [CC100 video tutorials](https://www.youtube.com/channel/UCV2GhmZPWc5JU73ktI1St4Q/videos) to learn about the cc100 lib in Node-RED
 
-## Links
-1. [https://www.wago.com/de/](https://www.wago.com/de/)
-2. [https://github.com/docker/docker-ce](https://github.com/docker/docker-ce)
+## Sources
+* [WAGO CC100 data sheet](https://www.wago.com/global/plcs-%E2%80%93-controllers/compact-controller-100/p/751-9301)
+* [WAGO Energy Meter (MID) information](https://www.wago.com/global/interface-electronic/discover-current-transformers-voltage-taps/mid-energy-meters)
+* [MID data sheet](https://www.wago.com/global/current-transformers-and-voltage-taps/energy-meter-mid/p/879-3000)

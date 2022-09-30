@@ -1,0 +1,2888 @@
+[
+    {
+        "id": "420908b2d3dfbb61",
+        "type": "subflow",
+        "name": "Read MID Data",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 380,
+                "wires": [
+                    {
+                        "id": "562a06ba13f5f8d1"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1040,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "0d092fecb95b3010",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1040,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "df25309a8b2ed958",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1040,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "f50b6c3a5e2dcc1c",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "1afd9837e265168f",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "6a58304a23f3a5e4",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "b044aafe4bfeef66",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1050,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "71538084e9c76055",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 400,
+                "wires": [
+                    {
+                        "id": "6a02b4efcb27a66f",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1090,
+                "y": 440,
+                "wires": [
+                    {
+                        "id": "3e5872425b2bb0f7",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1090,
+                "y": 480,
+                "wires": [
+                    {
+                        "id": "b6e059c97f23fc94",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1060,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "a86fb9f7860da1a3",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1090,
+                "y": 560,
+                "wires": [
+                    {
+                        "id": "e2f5a50310d1252e",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1090,
+                "y": 600,
+                "wires": [
+                    {
+                        "id": "c38154effaa86779",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1070,
+                "y": 640,
+                "wires": [
+                    {
+                        "id": "30b486b87258b285",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1040,
+                "y": 680,
+                "wires": [
+                    {
+                        "id": "ae7edd359222d2e5",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#6EC800",
+        "inputLabels": [
+            "trigger"
+        ],
+        "outputLabels": [
+            "voltage",
+            "frequency",
+            "current",
+            "effective power",
+            "reactive power",
+            "apparent power",
+            "power factor",
+            "effective energy",
+            "forward effective energy",
+            "reverse effective energy",
+            "reactive energy",
+            "forward reactive energy",
+            "reverse reactive energy",
+            "energy day counter",
+            "quadrant"
+        ],
+        "icon": "node-red-contrib-modbus/modbus.png"
+    },
+    {
+        "id": "562a06ba13f5f8d1",
+        "type": "modbus-flex-sequencer",
+        "z": "420908b2d3dfbb61",
+        "name": "",
+        "sequences": [
+            {
+                "name": "voltage",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20482",
+                "quantity": "6"
+            },
+            {
+                "name": "frequency",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20488",
+                "quantity": "2"
+            },
+            {
+                "name": "current",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20492",
+                "quantity": "6"
+            },
+            {
+                "name": "eff_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20498",
+                "quantity": "8"
+            },
+            {
+                "name": "reac_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20506",
+                "quantity": "8"
+            },
+            {
+                "name": "app_power",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20514",
+                "quantity": "8"
+            },
+            {
+                "name": "power_factor",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "20522",
+                "quantity": "8"
+            },
+            {
+                "name": "eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24576",
+                "quantity": "12"
+            },
+            {
+                "name": "forw_eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24588",
+                "quantity": "12"
+            },
+            {
+                "name": "rev_eff_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24600",
+                "quantity": "12"
+            },
+            {
+                "name": "reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24612",
+                "quantity": "12"
+            },
+            {
+                "name": "forw_reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24624",
+                "quantity": "12"
+            },
+            {
+                "name": "rev_reac_energy",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24636",
+                "quantity": "12"
+            },
+            {
+                "name": "quadrant",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "16408",
+                "quantity": "3"
+            },
+            {
+                "name": "day_counter",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "24649",
+                "quantity": "2"
+            }
+        ],
+        "server": "f916ff91cd483ac8",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "a80fc36e25dda56f"
+            ],
+            []
+        ],
+        "info": "if (name === \"voltage_L1\"){\r\n    msg.topic = \"voltage_L1\";\r\n} else {\r\n    msg.topic = \"default\";\r\n}\r\n\r\n"
+    },
+    {
+        "id": "a80fc36e25dda56f",
+        "type": "switch",
+        "z": "420908b2d3dfbb61",
+        "name": "",
+        "property": "name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "voltage",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "frequency",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "current",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_power",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_power",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "app_power",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "power_factor",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "eff_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_eff_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_eff_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reac_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "forw_reac_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rev_reac_energy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "day_counter",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "quadrant",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 15,
+        "x": 510,
+        "y": 380,
+        "wires": [
+            [
+                "0d092fecb95b3010"
+            ],
+            [
+                "df25309a8b2ed958"
+            ],
+            [
+                "f50b6c3a5e2dcc1c"
+            ],
+            [
+                "1afd9837e265168f"
+            ],
+            [
+                "6a58304a23f3a5e4"
+            ],
+            [
+                "b044aafe4bfeef66"
+            ],
+            [
+                "71538084e9c76055"
+            ],
+            [
+                "6a02b4efcb27a66f"
+            ],
+            [
+                "3e5872425b2bb0f7"
+            ],
+            [
+                "b6e059c97f23fc94"
+            ],
+            [
+                "a86fb9f7860da1a3"
+            ],
+            [
+                "e2f5a50310d1252e"
+            ],
+            [
+                "c38154effaa86779"
+            ],
+            [
+                "30b486b87258b285"
+            ],
+            [
+                "ae7edd359222d2e5"
+            ]
+        ]
+    },
+    {
+        "id": "1afd9837e265168f",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "effective power",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Effective Power",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Power L1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Power L2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Power L3",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 780,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0d092fecb95b3010",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "voltage",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Voltage L1",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Voltage L2",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Voltage L3",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 760,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f50b6c3a5e2dcc1c",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "current",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Current L1",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Current L2",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Current L3",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 760,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df25309a8b2ed958",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "frequency",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Frequency",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 760,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a58304a23f3a5e4",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "reactive power",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Reactive Power",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Power L1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Power L2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Power L3",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 780,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b044aafe4bfeef66",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "apparent power",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Apparent Power",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Apparent Power L1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Apparent Power L2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Apparent Power L3",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 780,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71538084e9c76055",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "power factor",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Power Factor",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Power Factor L1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Power Factor L2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Power Factor L3",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 770,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a02b4efcb27a66f",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "effective energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Effective Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Effective Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 780,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a86fb9f7860da1a3",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "reactive energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Reactive Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reactive Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 780,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e5872425b2bb0f7",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "forward effective energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Forward Effective Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Effective Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Effective Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Effective Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Effective Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Effective Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 810,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b6e059c97f23fc94",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "reverse effective energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Reverse Effective Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Effective Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Effective Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Effective Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Effective Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Effective Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 810,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2f5a50310d1252e",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "forward reactive energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Forward Reactive Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Reactive Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Reactive Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Reactive Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Reactive Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Forward Reactive Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 810,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c38154effaa86779",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "reverse reactive energy",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Total Reverse Reactive Energy",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Reactive Energy T1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Reactive Energy T2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Reactive Energy L1",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Reactive Energy L2",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "floatbe",
+                "name": "Reverse Reactive Energy L3",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 810,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30b486b87258b285",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "energy day counter",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "floatbe",
+                "name": "Energy Day Counter",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 790,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae7edd359222d2e5",
+        "type": "buffer-parser",
+        "z": "420908b2d3dfbb61",
+        "name": "quadrant",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16be",
+                "name": "Quadrant L1",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16be",
+                "name": "Quadrant L2",
+                "offset": 2,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16be",
+                "name": "Quadrant L3",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 760,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f916ff91cd483ac8",
+        "type": "modbus-client",
+        "name": "MID",
+        "clienttype": "serial",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.178.68",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/serial",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "even",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true
+    },
+    {
+        "id": "b7276ab41803b2e9",
+        "type": "tab",
+        "label": "MID Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "265f085d304c2ab8",
+        "type": "subflow:420908b2d3dfbb61",
+        "z": "b7276ab41803b2e9",
+        "name": "",
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "afc5487a76838bd1",
+                "7c74e30b961c87cd",
+                "cf70100f587c2ae9"
+            ],
+            [
+                "84b54533793409fb"
+            ],
+            [
+                "c8557e6f0f8c614f",
+                "44913d90cd1ab40e",
+                "a13fa870c9d44c6b"
+            ],
+            [
+                "d0deeb300e2d927c",
+                "8a570a274184e4a8",
+                "828483b13ebad28a",
+                "71ed6b3b969d2cda"
+            ],
+            [
+                "9abf8b8d3bfa6f85",
+                "7c2738ee449139f1",
+                "6fe95a9b6a484886",
+                "2037f77002b7d8d5"
+            ],
+            [
+                "8bdc622497f883cf",
+                "bc2c539d754e4d52",
+                "53577d0be58bfc74",
+                "b4377d60de88c503"
+            ],
+            [
+                "25ef419b1f12d319",
+                "34c2fb5f2c60746c",
+                "1a0f9fbbfbe05b7c",
+                "183765bff46a048c"
+            ],
+            [
+                "f96b6b13cf7c92a1",
+                "2a310154fa5b09b8",
+                "642bf74dc8c81336",
+                "15ad5c5591770661"
+            ],
+            [
+                "f299b362abde440e",
+                "21c12407939c5236",
+                "b0114e3294bc3347"
+            ],
+            [
+                "92fda4c98930badb",
+                "41e69cc04c571a88",
+                "e95e337fa4323cd7"
+            ],
+            [
+                "4a8e5f55b5deb739",
+                "164919a5da282bbf",
+                "16fbcc16eb861d19",
+                "bce4761e6f78f984"
+            ],
+            [
+                "0585d28ad56e4df4",
+                "97a4e21ae70d18e5",
+                "8fc28db88efbc0ad"
+            ],
+            [
+                "5d6fedf310a15b9a",
+                "5e82dc3a9f8c24cd",
+                "b456baa8ad69b453"
+            ],
+            [],
+            [
+                "f7d9207e1aec2e8e",
+                "45334387ec850b28",
+                "eae555a867e5173d"
+            ]
+        ]
+    },
+    {
+        "id": "06b8d1a92ef4106f",
+        "type": "inject",
+        "z": "b7276ab41803b2e9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "265f085d304c2ab8"
+            ]
+        ]
+    },
+    {
+        "id": "afc5487a76838bd1",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "Voltage L1",
+        "label": "Voltage",
+        "format": "{{payload[\"Voltage L1\"].toFixed(2)}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 830,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "7c74e30b961c87cd",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "Voltage L2",
+        "label": "Voltage",
+        "format": "{{payload[\"Voltage L2\"].toFixed(2)}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1130,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cf70100f587c2ae9",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "Voltage L3",
+        "label": "Voltage",
+        "format": "{{payload[\"Voltage L3\"].toFixed(2)}} V",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1430,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "84b54533793409fb",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Frequency",
+        "label": "Grid Frequency",
+        "format": "<font color={{msg.color}} >{{payload.Frequency.toFixed(2)}} Hz",
+        "layout": "row-spread",
+        "className": "",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d0deeb300e2d927c",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Total Effective Power",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Effective Power\"].toFixed(3)}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c8557e6f0f8c614f",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Current L1",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{payload[\"Current L1\"].toFixed(2)}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8a570a274184e4a8",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Power L1",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Power L1\"].toFixed(3)}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d5f6864209d7bec3",
+        "type": "ui_template",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "name": "Quadrant L1",
+        "order": 2,
+        "width": 6,
+        "height": 5,
+        "format": "<div class=\"quad_L1\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"skyblue\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'red':'black' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'red':'black' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'red':'black' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'red':'black' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 870,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44913d90cd1ab40e",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Current L2",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{payload[\"Current L2\"].toFixed(2)}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a13fa870c9d44c6b",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Current L3",
+        "label": "Current",
+        "format": "<font color={{msg.color}} >{{payload[\"Current L3\"].toFixed(2)}} A",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1430,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "828483b13ebad28a",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Power L2",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Power L2\"].toFixed(3)}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "71ed6b3b969d2cda",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Power L3",
+        "label": "Effective Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Power L3\"].toFixed(3)}} kW",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1450,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9abf8b8d3bfa6f85",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Total Reactive Power",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Reactive Power\"].toFixed(3)}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7c2738ee449139f1",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Power L1",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Power L1\"].toFixed(3)}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6fe95a9b6a484886",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Power L2",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Power L2\"].toFixed(3)}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2037f77002b7d8d5",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Power L3",
+        "label": "Reactive Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Power L3\"].toFixed(3)}} kvar",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1450,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8bdc622497f883cf",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Total Apparent Power",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Apparent Power\"].toFixed(3)}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bc2c539d754e4d52",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "Apparent Power L1",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Apparent Power L1\"].toFixed(3)}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "53577d0be58bfc74",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "Apparent Power L2",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Apparent Power L2\"].toFixed(3)}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b4377d60de88c503",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "Apparent Power L3",
+        "label": "Apparent Power",
+        "format": "<font color={{msg.color}} >{{payload[\"Apparent Power L3\"].toFixed(3)}} kVA",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1450,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "25ef419b1f12d319",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Total Power Factor",
+        "label": "Power Factor",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Power Factor\"].toFixed(2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "34c2fb5f2c60746c",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "Power Factor L1",
+        "label": "Power Factor",
+        "format": "<font color={{msg.color}} >{{payload[\"Power Factor L1\"].toFixed(2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 840,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1a0f9fbbfbe05b7c",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "Power Factor L2",
+        "label": "Power Factor",
+        "format": "<font color={{msg.color}} >{{payload[\"Power Factor L2\"].toFixed(2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "183765bff46a048c",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "Power Factor L3",
+        "label": "Power Factor",
+        "format": "<font color={{msg.color}} >{{payload[\"Power Factor L3\"].toFixed(2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1440,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f96b6b13cf7c92a1",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Total Effective Energy",
+        "label": "Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Effective Energy\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2a310154fa5b09b8",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Energy L1",
+        "label": "Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Energy L1\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "642bf74dc8c81336",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Energy L2",
+        "label": "Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Energy L2\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "15ad5c5591770661",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "Effective Energy L3",
+        "label": "Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Effective Energy L3\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1450,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f299b362abde440e",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Effective Energy L1",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Effective Energy L1\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 880,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "21c12407939c5236",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Effective Energy L2",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Effective Energy L2\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1180,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b0114e3294bc3347",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Effective Energy L3",
+        "label": "Forward Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Effective Energy L3\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1480,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "92fda4c98930badb",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Effective Energy L1",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Effective Energy L1\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 880,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "41e69cc04c571a88",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Effective Energy L2",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Effective Energy L2\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1180,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e95e337fa4323cd7",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Effective Energy L3",
+        "label": "Reverse Effective Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Effective Energy L3\"].toFixed(3)}} kWh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1480,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "4a8e5f55b5deb739",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "7e42d08b3968f8f8",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Total Reactive Energy",
+        "label": "Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Total Reactive Energy\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 600,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "164919a5da282bbf",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Energy L1",
+        "label": "Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Energy L1\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "16fbcc16eb861d19",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Energy L2",
+        "label": "Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Energy L2\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bce4761e6f78f984",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "Reactive Energy L3",
+        "label": "Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reactive Energy L3\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1450,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0585d28ad56e4df4",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Reactive Energy L1",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Reactive Energy L1\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 880,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "97a4e21ae70d18e5",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Reactive Energy L2",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Reactive Energy L2\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1180,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8fc28db88efbc0ad",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 22,
+        "width": 0,
+        "height": 0,
+        "name": "Forward Reactive Energy L3",
+        "label": "Forward Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Forward Reactive Energy L3\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1480,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5d6fedf310a15b9a",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "c336794c759d5349",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Reactive Energy L1",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Reactive Energy L1\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 880,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5e82dc3a9f8c24cd",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Reactive Energy L2",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Reactive Energy L2\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1180,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "b456baa8ad69b453",
+        "type": "ui_text",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "name": "Reverse Reactive Energy L3",
+        "label": "Reverse Reactive Energy",
+        "format": "<font color={{msg.color}} >{{payload[\"Reverse Reactive Energy L3\"].toFixed(3)}} kvarh",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1480,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f7d9207e1aec2e8e",
+        "type": "function",
+        "z": "b7276ab41803b2e9",
+        "name": "Extract Quadrant L1",
+        "func": "msg.payload = msg.payload[\"Quadrant L1\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 660,
+        "wires": [
+            [
+                "d5f6864209d7bec3"
+            ]
+        ]
+    },
+    {
+        "id": "e124cf84779ea19d",
+        "type": "ui_template",
+        "z": "b7276ab41803b2e9",
+        "group": "16387a8bbfb992f8",
+        "name": "Quadrant L2",
+        "order": 2,
+        "width": 6,
+        "height": 5,
+        "format": "<div class=\"quad_L2\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"skyblue\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'red':'black' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'red':'black' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'red':'black' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'red':'black' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1170,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c06d69e983505446",
+        "type": "ui_template",
+        "z": "b7276ab41803b2e9",
+        "group": "a5d4bd85b80e239c",
+        "name": "Quadrant L3",
+        "order": 2,
+        "width": 6,
+        "height": 5,
+        "format": "<div class=\"quad_L3\">\n\n<svg width=\"250\" height=\"250\">\n  <circle cx=\"125\" cy=\"125\" r=\"75\" stroke=\"black\" stroke-width=\"1\" fill=\"skyblue\" />\n  <line x1=\"25\" y1=\"125\" x2=\"225\" y2=\"125\" stroke=\"black\" stroke-width=\"2\" />\n  <line x1=\"125\" y1=\"25\" x2=\"125\" y2=\"225\" stroke=\"black\" stroke-width=\"2\" />\n  <text x=\"145\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 1) ? 'red':'black' }}\">I</text>\n  <text x=\"85\" y=\"110\" font-size=\"2em\" style=\"fill: {{(msg.payload === 2) ? 'red':'black' }}\">II</text>\n  <text x=\"75\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 3) ? 'red':'black' }}\">III</text>\n  <text x=\"145\" y=\"160\" font-size=\"2em\" style=\"fill: {{(msg.payload === 4) ? 'red':'black' }}\">IV</text>\n  <text x=\"230\" y=\"130\" fill=\"black\" font-size=\"1em\">P+</text>\n  <text x=\"5\" y=\"130\" fill=\"black\" font-size=\"1em\">P-</text>\n  <text x=\"120\" y=\"20\" fill=\"black\" font-size=\"1em\">Q+</text>\n  <text x=\"120\" y=\"240\" fill=\"black\" font-size=\"1em\">Q-</text>\n</svg>\n\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1470,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45334387ec850b28",
+        "type": "function",
+        "z": "b7276ab41803b2e9",
+        "name": "Extract Quadrant L2",
+        "func": "msg.payload = msg.payload[\"Quadrant L2\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 660,
+        "wires": [
+            [
+                "e124cf84779ea19d"
+            ]
+        ]
+    },
+    {
+        "id": "eae555a867e5173d",
+        "type": "function",
+        "z": "b7276ab41803b2e9",
+        "name": "Extract Quadrant L3",
+        "func": "msg.payload = msg.payload[\"Quadrant L3\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1460,
+        "y": 660,
+        "wires": [
+            [
+                "c06d69e983505446"
+            ]
+        ]
+    },
+    {
+        "id": "c1fa1e71e57c80b4",
+        "type": "comment",
+        "z": "b7276ab41803b2e9",
+        "name": "Total",
+        "info": "",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "36ba838f737248c6",
+        "type": "comment",
+        "z": "b7276ab41803b2e9",
+        "name": "Phase L1",
+        "info": "",
+        "x": 820,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2ee1a9da5cca042f",
+        "type": "comment",
+        "z": "b7276ab41803b2e9",
+        "name": "Phase L2",
+        "info": "",
+        "x": 1120,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f80a39561f75547b",
+        "type": "comment",
+        "z": "b7276ab41803b2e9",
+        "name": "Phase L3",
+        "info": "",
+        "x": 1420,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "cd481a70adefef59",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "614e14e051dc66fe",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d395280d53493547",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2be3f20f12c0f336",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "782ab5e26033ba20",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a318486842e66950",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c32d94fbe435f1c1",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0649b0d3a2f01151",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a278573e139b0263",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f654499526da7bab",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "c336794c759d5349",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "38571f4694650946",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f56e087adbfe6948",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "361d1b3ed43223e6",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a8e5525ee98110f5",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "11c763f1ba7bf21a",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d18495645c5a0783",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c0ce45d861a29939",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8ea1f8d0a8a18faa",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "aef375cd715d1b3b",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "69b40c5cee4dd436",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "16387a8bbfb992f8",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "063fa74560f543e9",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0103f719860df7f1",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "96ce8fd7f691f115",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a99af5c4e77f70f3",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cec9039065ff7e40",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "21e062a90e82f7a0",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "412b39d2be8d1689",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "131acc630c0ad5b4",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9ae9fb9b4f3dfd7e",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0272dd5ca5988871",
+        "type": "ui_spacer",
+        "z": "b7276ab41803b2e9",
+        "name": "spacer",
+        "group": "a5d4bd85b80e239c",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c336794c759d5349",
+        "type": "ui_group",
+        "name": "Phase L1",
+        "tab": "15a58c0ccb83e825",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16387a8bbfb992f8",
+        "type": "ui_group",
+        "name": "Phase L2",
+        "tab": "15a58c0ccb83e825",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a5d4bd85b80e239c",
+        "type": "ui_group",
+        "name": "Phase L3",
+        "tab": "15a58c0ccb83e825",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7e42d08b3968f8f8",
+        "type": "ui_group",
+        "name": "Total",
+        "tab": "15a58c0ccb83e825",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "15a58c0ccb83e825",
+        "type": "ui_tab",
+        "name": "MID Data",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

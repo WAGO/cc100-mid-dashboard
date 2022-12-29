@@ -57,7 +57,7 @@ docker images       # lists all preinstalled images
 -p 1880:1880 \
 -v node_red_user_data:/data \
 -v /dev/ttySTM1:/dev/serial \
-nodered/node-red
+wagoautomation/node-red-cc100:1.0.0
 </code></pre>
 
 ## Import Node-RED dashboard

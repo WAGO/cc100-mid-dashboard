@@ -62,7 +62,7 @@ wagoautomation/node-red-cc100:1.0.0
 
 ## Import Node-RED dashboard
 1. Open Node-RED by typing **\<ip of your PFC>\:1880** into your browser
-2. Install the **node-red-contrib-modbus** lib and the **node-red-dashboard** lib (burger menu - Manage palette - Install)
+2. Install the **node-red-dashboard** lib (burger menu - Manage palette - Install)
 3. Import the flow [MID Dashboard](flow_mid_dashboard.json)
 
 <p align="center">
